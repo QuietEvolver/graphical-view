@@ -9,5 +9,8 @@ const typeDefs = gql`
         title: String!
         completed: Boolean!
     }
-        
+    
+    type Query {
+        tasks: [Task]
+    }
 `
