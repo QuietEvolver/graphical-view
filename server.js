@@ -41,3 +41,6 @@ const resolvers = {
     },
 };
 
+// set up Apollo server
+const server = new ApolloServer({ typeDefs, resolvers });
+
