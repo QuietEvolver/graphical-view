@@ -57,3 +57,9 @@ const Task = mongoose.model('Task', {
 
 const app = express();
 server.applyMiddleware({ app });
+
+// start the server
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+    console.log(`Server listening on http://localhost:${PORT}`);
+});
