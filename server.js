@@ -44,3 +44,16 @@ const resolvers = {
 // set up Apollo server
 const server = new ApolloServer({ typeDefs, resolvers });
 
+// connect to MongoDB db
+mongoose.connect('mongodb://localhost/taskapp', {
+    useNewUrlparser: true,
+    useUnifiedTopology: true,
+});
+
+const Task = mongoose.model('Task', {
+    title: String, 
+    completed: Boolean,
+}); 
+
+const app = express();
+server.applyMiddleware({ app });
