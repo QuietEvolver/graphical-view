@@ -18,4 +18,26 @@ const typeDefs = gql`
         createTask(title: String!): Task
         deleteTask(id: ID!): Task
     }
-`
+`;
+
+// define resolvers
+const resolvers = {
+    Query: {
+        tasks: async () => {
+            // fetch tasks from database (i.e. MongoDB)
+            return Task.Find();
+        }, 
+    },
+    Mutation: {
+        createTask: async (_, { title }) => {
+            const task = new Task({ title, completed: false });
+            await task.save();
+            return task;
+        }, 
+        deleteTask: async (_, { id }) => {
+            const task = await Task.findByIdAndRemove(id);
+            return task;
+        },
+    },
+};
+
