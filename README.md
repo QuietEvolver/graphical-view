@@ -11,7 +11,7 @@
 
 ## Technologies Used
 
-* [Vue](https://cli.vuejs.org/config/).
+* [Vue](https://cli.vuejs.org/config/)
 * Javascript
 * CSS
 * HTML
